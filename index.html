@@ -15,15 +15,19 @@
     </header>
 
     <main>
-        <section>  <!-- Résultat final -->
-
+        <section> 
+            <h1>Jukebox IA</h1>
+            <h2>Résultat final :</h2>
+            <img src="assets/resultat_final1.JPG" alt="Résultat final" class="showcase">
+            <img src="assets/resultat_final2.JPG" class="showcase">
+            <img src="assets/resultat_final3.JPG" class="showcase">     
 
         </section>
 
         <section>
-            <h1>Jukebox IA</h1>
-            <p>Voici l'explication derriere cette invention: J'en avais marre de déverrouiller mon téléphone, ouvrir Spotify, chercher une chanson, tout ça juste pour changer de musique. Alors j'ai construit un truc où je dis juste "joue du Travis Scott" et ça le fait. Avec un Raspberry Pi 5 et une vieille boîte à cigares.
-                <br>Ce projet a démarré avec la réception de quelques composants pour expérimenter avec mon <a href="https://www.raspberrypi.com/products/raspberry-pi-5/">Raspberry Pi 5.</a></p>
+            
+            <p>Pourquoi cette invention ? J'en avais marre de déverrouiller mon téléphone, ouvrir Spotify, chercher une chanson, tout ça juste pour changer de musique. Alors j'ai construit un truc où je dis juste "joue du Travis Scott" et ça le fait. Avec un Raspberry Pi 5 et une vieille boîte à cigares. <br>On pourrait se demander s'il ne valait pas mieux acheter une Alexa, mais à une époque où la confidentialité des données n'est plus garantie, cela pousse à réfléchir à deux fois.
+                <br>Ce projet a démarré avec la réception de quelques composants pour expérimenter avec mon <a href="https://www.raspberrypi.com/products/raspberry-pi-5/">Raspberry Pi 5 :</a></p>
             <ul>
                 <li>1x Pack de câbles Jumper Femelle-Femelle (F-F) (40 pcs ruban)</li>
                 <li>1x Pack de câbles Jumper Femelle-Mâle (F-M) (40 pcs ruban)</li>
@@ -58,7 +62,7 @@
         <section>
             <hr>
             <h2>Pipeline de l'agent IA :</h2>
-            <p>Tout ce qui suit est le fruit du "vibe-coding" (codage a l'aide de LLMs), et de longues heures à déboguer le code généré par l'IA.</p>
+            <p>Tout ce qui suit est le fruit du "vibe-coding" (codage à l'aide de LLMs), et de longues heures à déboguer le code généré par l'IA.</p>
             <p>J'appuie sur un des boutons poussoirs, je parle dans le micro USB, et je relâche quand j'ai fini.<br>
             Ma voix enregistrée est ensuite transformée en texte par <a href="https://pypi.org/project/faster-whisper/0.3.0/">faster-whisper 0.3.0</a>, une réimplémentation du modèle Whisper d'OpenAI utilisant CTranslate2, un moteur d'inférence rapide pour les modèles Transformer.<br>
             Le prompt est ensuite envoyé à <a href="https://huggingface.co/Qwen/Qwen3-0.6B">Qwen3-0.6B</a> via <a href="https://ollama.com/">Ollama</a>.<br>
@@ -74,7 +78,7 @@
             <img src="assets/case_view.jpeg" class="showcase">
             <img src="assets/case_view2.jpeg" class="showcase">
             <img src="assets/case_view3.jpeg" class="showcase">
-            <p>Phase finale: donner accès à Spotify a l'agent via <a href="https://github.com/librespot-org/librespot">Librespot</a>.</p>
+            <p>Phase finale : donner accès à Spotify à l'agent via <a href="https://github.com/librespot-org/librespot">Librespot</a>.</p>
             <div class="video-container">
                 <video width="300" height="300" autoplay loop muted>
                     <source src="assets/showcase_case.mp4" type="video/mp4">
@@ -85,11 +89,20 @@
                     Votre navigateur ne supporte pas la balise vidéo.
                 </video>
             </div>
+            <hr>
+            <h2>Ma photo de profil :</h2>
+            <img src="assets/photo_de_profil.jpg" alt="Photo de profil" class="showcase">
+            <ul>
+                <li>Classe : 3ème au Collège Lamartine (Aix-les-Bains, Savoie)</li>
+                <li>Passions : ski, bricolage, dessin</li>
+                <li>Métier rêvé : Ingénieur nucléaire</li>
+                <li>Âge : 15 ans</li>
+            </ul>
         </section>
 
     </main>
 
-    <footer style="font-size: 10px"> Oui, cette page a ete ecris entierement en html et css.</footer>
+    <footer style="font-size: 10px">Oui, cette page a été écrite entièrement en HTML et CSS.</footer>
 
 </body>
 </html>
