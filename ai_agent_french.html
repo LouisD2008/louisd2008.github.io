@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent IA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+    </header>
+
+    <main>
+        <section>  <!-- Résultat final -->
+
+
+        </section>
+
+        <section>
+            <h1>Jukebox IA</h1>
+            <p>Voici l'explication derriere cette invention: J'en avais marre de déverrouiller mon téléphone, ouvrir Spotify, chercher une chanson, tout ça juste pour changer de musique. Alors j'ai construit un truc où je dis juste "joue du Travis Scott" et ça le fait. Avec un Raspberry Pi 5 et une vieille boîte à cigares.
+                <br>Ce projet a démarré avec la réception de quelques composants pour expérimenter avec mon <a href="https://www.raspberrypi.com/products/raspberry-pi-5/">Raspberry Pi 5.</a></p>
+            <ul>
+                <li>1x Pack de câbles Jumper Femelle-Femelle (F-F) (40 pcs ruban)</li>
+                <li>1x Pack de câbles Jumper Femelle-Mâle (F-M) (40 pcs ruban)</li>
+                <li>Écran OLED 1.3"</li>
+                <li>2x Amplificateurs I2S MAX98357A : pour transformer le signal numérique en analogique pour les haut-parleurs</li>
+                <li>Module encodeur rotatif 5 broches (pour le volume)</li>
+                <li>Beaucoup de boutons poussoirs</li>
+                <li>2x Haut-parleurs 3W</li>
+                <li>Breadboard medium</li>
+                <li>Micro USB pas cher</li>
+            </ul>
+            <img src="assets/order.jpeg" alt="Composants commandés" class="showcase">
+            <p>La première difficulté est apparue lors du branchement de tous ces composants pendant le prototypage. L'encodeur rotatif et l'écran OLED ne m'ont posé aucun problème — il suffisait de les connecter aux bons pins GPIO du Pi. (L'écran a l'air bizarre car je n'utilisais pas encore Luma)</p>
+            <img src="assets/oled_screen.jpeg" class="showcase">
+            <img src="assets/oled_wiring.jpeg" class="showcase">
+            <p>La soudure, en revanche, s'est moins bien passée — c'était la première fois que je soudais des composants électroniques, et le résultat n'était pas beau.</p>
+            <img src="assets/soldering.jpeg" class="showcase">
+            <img src="assets/prototyping.jpg" class="showcase">
+            <img src="assets/wires_closeup.jpeg" class="showcase">
+            <p>En fait, les haut-parleurs ne fonctionnaient pas, car la connexion avec l'ampli était trop mauvaise. J'ai donc décidé de connecter le RPi5 en Bluetooth à un petit haut-parleur JBL.</p>
+            <video width="640" height="360" autoplay loop muted>
+                <source src="assets/oled_animation.MOV" type="video/mp4">
+                    Votre navigateur ne supporte pas la balise vidéo.
+            </video>
+            <p>J'ai écrit un script Python pour afficher des éléments sur l'écran OLED avec <a href="https://pypi.org/project/luma.oled/">Luma</a>, mais l'affichage était mal calibré, j'ai donc dû écrire un autre script pour afficher chaque frame correctement.<br>Les animations ont été conçues avec <a href="https://www.piskelapp.com/">Piskel</a>.</p>
+            <img src="assets/button_animation.gif" alt="animation sur l'oled" class="gifs" style="background-color:black;">
+            <img src="assets/thinking_animation.gif" alt="animation de réflexion sur l'oled" class="gifs" style="background-color:black;">
+            <img src="assets/voume_gif.gif" alt="animation volume sur l'oled" class="gifs" style="background-color:black;">
+            <img src="assets/home.png" alt="écran d'accueil oled" style="background-color:black;">
+
+        </section>
+        <section>
+            <hr>
+            <h2>Pipeline de l'agent IA :</h2>
+            <p>Tout ce qui suit est le fruit du "vibe-coding" (codage a l'aide de LLMs), et de longues heures à déboguer le code généré par l'IA.</p>
+            <p>J'appuie sur un des boutons poussoirs, je parle dans le micro USB, et je relâche quand j'ai fini.<br>
+            Ma voix enregistrée est ensuite transformée en texte par <a href="https://pypi.org/project/faster-whisper/0.3.0/">faster-whisper 0.3.0</a>, une réimplémentation du modèle Whisper d'OpenAI utilisant CTranslate2, un moteur d'inférence rapide pour les modèles Transformer.<br>
+            Le prompt est ensuite envoyé à <a href="https://huggingface.co/Qwen/Qwen3-0.6B">Qwen3-0.6B</a> via <a href="https://ollama.com/">Ollama</a>.<br>
+            Enfin, la réponse de l'IA est convertie en voix par <a href="https://github.com/rhasspy/piper">Piper TTS</a> et diffusée via le haut-parleur JBL (Bluetooth).</p>
+
+            <p>Note : Pourquoi Qwen3-0.6B ? En raison des limitations du CPU du RPi5, j'ai dû privilégier la vitesse sur la qualité. L'agent IA, du début à la fin, répond en moins de 3 secondes avec ce modèle — même si les réponses laissent parfois à désirer. Avec des modèles plus puissants, l'agent peut mettre jusqu'à 10 secondes, ce qui détruit l'objectif d'avoir une conversation naturelle.</p>
+            <hr>
+        </section>
+        <section>
+            <p>L'étape suivante était d'assembler tout ça de manière plus compacte et moins prototype.</p>
+            <img src="assets/blueprint.png" id="blueprint">
+            <p>J'ai passé un après-midi à percer des trous dans une vieille boîte à cigares et à essayer de trouver comment placer chaque élément correctement, en faisant beaucoup d'erreurs au passage.<br>Voilà le résultat :</p>
+            <img src="assets/case_view.jpeg" class="showcase">
+            <img src="assets/case_view2.jpeg" class="showcase">
+            <img src="assets/case_view3.jpeg" class="showcase">
+            <p>Phase finale: donner accès à Spotify a l'agent via <a href="https://github.com/librespot-org/librespot">Librespot</a>.</p>
+            <div class="video-container">
+                <video width="300" height="300" autoplay loop muted>
+                    <source src="assets/showcase_case.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la balise vidéo.
+                </video>
+                <video width="300" height="300" autoplay loop muted>
+                    <source src="assets/showcase_case2.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la balise vidéo.
+                </video>
+            </div>
+        </section>
+
+    </main>
+
+    <footer style="font-size: 10px"> Oui, cette page a ete ecris entierement en html et css.</footer>
+
+</body>
+</html>
