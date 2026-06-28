@@ -26,8 +26,7 @@
 
         <section>
             
-            <p>Pourquoi cette invention ? J'en avais marre de déverrouiller mon téléphone, ouvrir Spotify, chercher une chanson, tout ça juste pour changer de musique. Alors j'ai construit un truc où je dis juste "joue du Travis Scott" et ça le fait. Avec un Raspberry Pi 5 et une vieille boîte à cigares. <br>On pourrait se demander s'il ne valait pas mieux acheter une Alexa, mais à une époque où la confidentialité des données n'est plus garantie, cela pousse à réfléchir à deux fois.
-                <br>Ce projet a démarré avec la réception de quelques composants pour expérimenter avec mon <a href="https://www.raspberrypi.com/products/raspberry-pi-5/">Raspberry Pi 5 :</a></p>
+            <p>Pourquoi ce projet ? Tout simplement parce que j'en avais marre de devoir déverrouiller mon téléphone, ouvrir Spotify et chercher un morceau à chaque fois que je voulais changer de musique. J'ai donc fabriqué un système tout simple : je dis "joue du Travis Scott" et ça se lance tout seul. Le tout fonctionne avec un Raspberry Pi 5 intégré dans une vieille boîte à cigares. <br>Alors oui, on pourrait se dire qu'acheter une enceinte Alexa aurait été plus simple, mais à une époque où la confidentialité des données laisse à désirer, ça fait du bien de concevoir son propre outil de A à Z.</p>
             <ul>
                 <li>1x Pack de câbles Jumper Femelle-Femelle (F-F) (40 pcs ruban)</li>
                 <li>1x Pack de câbles Jumper Femelle-Mâle (F-M) (40 pcs ruban)</li>
@@ -49,7 +48,7 @@
             <img src="assets/wires_closeup.jpeg" class="showcase">
             <p>En fait, les haut-parleurs ne fonctionnaient pas, car la connexion avec l'ampli était trop mauvaise. J'ai donc décidé de connecter le RPi5 en Bluetooth à un petit haut-parleur JBL.</p>
             <video width="640" height="360" autoplay loop muted>
-                <source src="assets/oled_animation.MOV" type="video/mp4">
+                <source src="assets/oled_animation_muted.MOV" type="video/mp4">
                     Votre navigateur ne supporte pas la balise vidéo.
             </video>
             <p>J'ai écrit un script Python pour afficher des éléments sur l'écran OLED avec <a href="https://pypi.org/project/luma.oled/">Luma</a>, mais l'affichage était mal calibré, j'ai donc dû écrire un autre script pour afficher chaque frame correctement.<br>Les animations ont été conçues avec <a href="https://www.piskelapp.com/">Piskel</a>.</p>
@@ -81,11 +80,11 @@
             <p>Phase finale : donner accès à Spotify à l'agent via <a href="https://github.com/librespot-org/librespot">Librespot</a>.</p>
             <div class="video-container">
                 <video width="300" height="300" autoplay loop muted>
-                    <source src="assets/showcase_case.mp4" type="video/mp4">
+                    <source src="assets/showcase_case_muted.mp4" type="video/mp4">
                     Votre navigateur ne supporte pas la balise vidéo.
                 </video>
                 <video width="300" height="300" autoplay loop muted>
-                    <source src="assets/showcase_case2.mp4" type="video/mp4">
+                    <source src="assets/showcase_case2_muted.mp4" type="video/mp4">
                     Votre navigateur ne supporte pas la balise vidéo.
                 </video>
             </div>
